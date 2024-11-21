@@ -8,7 +8,7 @@ with open('UserCar.txt','r',encoding='utf=8') as f:
         I=I[0]
         I=int(I)
         for a in range(0, I):
-            for b in range(0,5):
+            for b in range(0,6):
                 y = f.readline()
                 y = y.rstrip('\n')
                 UserCar.append(y)
@@ -70,21 +70,23 @@ while x!=1:
                 file.write(Cars + '\n')
         break
     if name =='tab':
-            print('|компания      |производитель      |цвет мащины      |тип коробки передач |фары машины          |')
-            print('—————————————————————————————————————————————————————————————————————————————————————————————————')
+            print('|компания      |производитель      |цвет мащины      |тип коробки передач |фары машины          |год выпуска машины|')
+            print('————————————————————————————————————————————————————————————————————————————————————————————————————————————————————')
             for i in range (0,I):
-                comp=len(UserCar[i*5])
+                comp=len(UserCar[i*6])
                 comp=14-comp
-                prois=len(UserCar[i*5+1])
+                prois=len(UserCar[i*6+1])
                 prois=19-prois
-                colores=len(UserCar[i*5+2])
+                colores=len(UserCar[i*6+2])
                 colores=17-colores
-                peredacha=len(UserCar[i*5+3])
+                peredacha=len(UserCar[i*6+3])
                 peredacha=20-peredacha
-                fara=len(UserCar[i*5+4])
+                fara=len(UserCar[i*6+4])
                 fara=21-fara
-                print('|'+UserCar[i*5]+' '*comp+'|'+UserCar[i*5+1]+' '*prois+'|'+UserCar[i*5+2]+' '* colores+'|'+UserCar[i*5+3]+' '*peredacha+'|'+UserCar[i*5+4]+' '*fara+'|')
-                print('—————————————————————————————————————————————————————————————————————————————————————————————————')
+                year=len(UserCar[i*6+5])
+                year=18-year
+                print('|'+UserCar[i*6]+' '*comp+'|'+UserCar[i*6+1]+' '*prois+'|'+UserCar[i*6+2]+' '* colores+'|'+UserCar[i*6+3]+' '*peredacha+'|'+UserCar[i*6+4]+' '*fara+'|'+UserCar[i*6+5]+' '*year+'|')
+                print('————————————————————————————————————————————————————————————————————————————————————————————————————————————————————')
                 continue
     # удаляем машину
     elif name == 'del':
@@ -98,11 +100,12 @@ while x!=1:
             continue
         else:
             m=Cars.index(deleting)
-            UserCar.pop(m*5)
-            UserCar.pop(m*5)
-            UserCar.pop(m*5)
-            UserCar.pop(m*5)
-            UserCar.pop(m*5)
+            UserCar.pop(m*6)
+            UserCar.pop(m*6)
+            UserCar.pop(m*6)
+            UserCar.pop(m*6)
+            UserCar.pop(m*6)
+            UserCar.pop(m*6)
             Cars.pop(m)
             I=I-1
     # Добавляем информацию
@@ -123,6 +126,9 @@ while x!=1:
             print('введите фары машины:')
             s = input()
             UserCar.append(s)
+            print('введите год выпуска машины:')
+            s= input()
+            UserCar.append(s)
             I=I+1
             continue
     # проверка на лоха
@@ -136,11 +142,12 @@ while x!=1:
     a = Cars.index(name)
     # информация о тачках
     print("============================================================================================")
-    print('название:', UserCar[a * 5])
-    print('компания:', UserCar[a * 5 + 1])
-    print('цвет:', UserCar[a * 5 + 2])
-    print('тип передач:', UserCar[a * 5 + 3])
-    print('фары:', UserCar[a * 5 + 4])
+    print('название:', UserCar[a * 6])
+    print('компания:', UserCar[a * 6 + 1])
+    print('цвет:', UserCar[a * 6 + 2])
+    print('тип передач:', UserCar[a * 6 + 3])
+    print('фары:', UserCar[a * 6 + 4])
+    print('год:', UserCar[a*6+5])
     print("============================================================================================")
     print('введите что угодно, чтобы вернуться в меню.')
     h = input()
